@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Security - Cyber Attack Visualization</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Cyber Attack Map Background -->
+    <div id="cyber-map-container">
+        <canvas id="cyber-map" width="1920" height="1080"></canvas>
+        <div id="world-map"></div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="content">
+        <header>
+            <h1>Password Security Monitor</h1>
+            <p class="subtitle">Real-time global cyber threat visualization</p>
+        </header>
+
+        <main>
+            <!-- Breach Counter Section -->
+            <section id="breach-counter-section">
+                <div class="breach-counter">
+                    <h2>Global Security Breaches</h2>
+                    <div class="counter-display">
+                        <span id="breach-count">0</span>
+                        <span class="counter-label">breaches detected today</span>
+                    </div>
+                    <div class="breach-stats">
+                        <div class="stat">
+                            <span class="stat-number" id="passwords-compromised">0</span>
+                            <span class="stat-label">passwords compromised</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" id="attacks-blocked">0</span>
+                            <span class="stat-label">attacks blocked</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Password Security Section -->
+            <section id="password-security-section">
+                <div class="security-content">
+                    <h2>Why Strong Passwords Matter</h2>
+                    <p>Every second, cyber attackers launch thousands of attempts to compromise weak passwords. The visualization above shows real-time simulated attacks happening globally.</p>
+                    
+                    <div class="security-tips">
+                        <div class="tip">
+                            <h3>🔒 Use Complex Passwords</h3>
+                            <p>Combine uppercase, lowercase, numbers, and symbols</p>
+                        </div>
+                        <div class="tip">
+                            <h3>🔄 Enable 2FA</h3>
+                            <p>Add an extra layer of security to your accounts</p>
+                        </div>
+                        <div class="tip">
+                            <h3>🎯 Unique for Each Account</h3>
+                            <p>Never reuse passwords across multiple services</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,325 @@
+/* CSS Variables for Color Scheme */
+:root {
+    --primary-purple: #8b5cf6;
+    --secondary-purple: #a855f7;
+    --accent-yellow: #fbbf24;
+    --accent-red: #ef4444;
+    --dark-bg: #0f0f23;
+    --darker-bg: #050505;
+    --text-light: #e5e7eb;
+    --text-bright: #ffffff;
+    --glass-bg: rgba(139, 92, 246, 0.1);
+    --glass-border: rgba(139, 92, 246, 0.2);
+}
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--darker-bg);
+    color: var(--text-light);
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* Cyber Map Background */
+#cyber-map-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    overflow: hidden;
+}
+
+#cyber-map {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.3;
+}
+
+#world-map {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 60%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500"><path d="M150 200 L200 180 L250 190 L300 170 L350 180 L400 175 L450 185 L500 180 L550 190 L600 185 L650 195 L700 180 L750 175 L800 185 L850 180 L900 190 L950 185 L950 220 L900 225 L850 230 L800 235 L750 240 L700 245 L650 250 L600 255 L550 250 L500 245 L450 250 L400 255 L350 250 L300 245 L250 250 L200 255 L150 250 Z M250 120 L300 110 L350 115 L400 105 L450 110 L500 115 L550 110 L600 105 L650 110 L700 115 L700 140 L650 145 L600 150 L550 145 L500 150 L450 145 L400 150 L350 145 L300 150 L250 145 Z" fill="%23' + var(--primary-purple).substring(1) + '" opacity="0.2" stroke="%23' + var(--secondary-purple).substring(1) + '" stroke-width="1"/></svg>') no-repeat center center;
+    background-size: contain;
+    opacity: 0.4;
+}
+
+/* Main Content */
+#content {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 4rem;
+    padding: 2rem 0;
+}
+
+header h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--primary-purple), var(--accent-yellow));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 30px rgba(139, 92, 246, 0.5);
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    opacity: 0.8;
+}
+
+/* Main Content Grid */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+}
+
+/* Breach Counter Section */
+#breach-counter-section {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+#breach-counter-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(251, 191, 36, 0.1), transparent);
+    animation: scan 3s infinite;
+}
+
+@keyframes scan {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+.breach-counter h2 {
+    color: var(--accent-red);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.counter-display {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+#breach-count {
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--accent-yellow);
+    text-shadow: 0 0 20px rgba(251, 191, 36, 0.5);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.counter-label {
+    display: block;
+    color: var(--text-light);
+    font-size: 1rem;
+    margin-top: 0.5rem;
+}
+
+.breach-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.stat {
+    text-align: center;
+    padding: 1rem;
+    background: rgba(139, 92, 246, 0.05);
+    border-radius: 10px;
+    border: 1px solid rgba(139, 92, 246, 0.1);
+}
+
+.stat-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--primary-purple);
+}
+
+.stat-label {
+    display: block;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+/* Password Security Section */
+#password-security-section {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+}
+
+.security-content h2 {
+    color: var(--text-bright);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.security-content p {
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.security-tips {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.tip {
+    background: rgba(139, 92, 246, 0.05);
+    padding: 1.5rem;
+    border-radius: 15px;
+    border: 1px solid rgba(139, 92, 246, 0.1);
+    transition: all 0.3s ease;
+}
+
+.tip:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-purple);
+    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.2);
+}
+
+.tip h3 {
+    color: var(--accent-yellow);
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.tip p {
+    color: var(--text-light);
+    margin: 0;
+    font-size: 1rem;
+}
+
+/* Attack Animation Styles */
+.attack-line {
+    position: absolute;
+    width: 2px;
+    background: linear-gradient(0deg, var(--accent-red), var(--accent-yellow));
+    opacity: 0;
+    animation: attack-pulse 2s ease-out forwards;
+    box-shadow: 0 0 10px var(--accent-red);
+}
+
+@keyframes attack-pulse {
+    0% {
+        opacity: 0;
+        transform: scale(1, 0);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1, 1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1, 1);
+    }
+}
+
+.attack-point {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: var(--accent-red);
+    border-radius: 50%;
+    animation: point-glow 1s ease-out;
+    box-shadow: 0 0 15px var(--accent-red);
+}
+
+@keyframes point-glow {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #content {
+        padding: 1rem;
+    }
+    
+    header h1 {
+        font-size: 2.5rem;
+    }
+    
+    #breach-count {
+        font-size: 3rem;
+    }
+    
+    .security-tips {
+        grid-template-columns: 1fr;
+    }
+    
+    .breach-stats {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    #breach-count {
+        font-size: 2.5rem;
+    }
+    
+    .tip, .stat {
+        padding: 1rem;
+    }
+}
